@@ -1,0 +1,22 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: myapi-deployment
+  labels:
+    app: myapi
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: myapi
+  template:
+    metadata:
+      labels:
+        app: myapi
+    spec:
+      containers:
+      - name: myapi
+        image: 862980915839.dkr.ecr.ca-central-1.amazonaws.com/myapi:0.0.1
+        ports:
+        - containerPort: 8080
+
